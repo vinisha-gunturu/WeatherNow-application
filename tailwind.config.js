@@ -13,6 +13,8 @@ module.exports = {
         'fade-in': 'fadeIn 0.5s ease-in-out',
         'slide-up': 'slideUp 0.5s ease-out',
         'float': 'float 3s ease-in-out infinite',
+        'gradient-shift': 'gradientShift 8s ease-in-out infinite',
+        'pulse-glow': 'pulseGlow 3s ease-in-out infinite',
       },
       keyframes: {
         fadeIn: {
@@ -27,13 +29,36 @@ module.exports = {
           '0%, 100%': { transform: 'translateY(0px)' },
           '50%': { transform: 'translateY(-10px)' },
         },
+        gradientShift: {
+          '0%': { backgroundPosition: '0% 50%' },
+          '50%': { backgroundPosition: '100% 50%' },
+          '100%': { backgroundPosition: '0% 50%' },
+        },
+        pulseGlow: {
+          '0%, 100%': { boxShadow: '0 0 20px rgba(255, 255, 255, 0.3)' },
+          '50%': { boxShadow: '0 0 40px rgba(255, 255, 255, 0.6)' },
+        },
       },
       backgroundImage: {
-        'sunny-gradient': 'linear-gradient(135deg, #ffeaa7 0%, #fdcb6e 100%)',
-        'rainy-gradient': 'linear-gradient(135deg, #74b9ff 0%, #0984e3 100%)',
-        'cloudy-gradient': 'linear-gradient(135deg, #ddd6fe 0%, #8b5cf6 100%)',
-        'snowy-gradient': 'linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%)',
-        'night-gradient': 'linear-gradient(135deg, #2d3748 0%, #1a202c 100%)',
+        // Stunning sunny gradient with warm vibrant colors
+        'sunny-gradient': 'linear-gradient(135deg, #ff9a8b 0%, #fecfef 25%, #fecfef 50%, #f6d365 75%, #fda085 100%)',
+
+        // Dynamic rainy gradient with deep blues and purples
+        'rainy-gradient': 'linear-gradient(135deg, #667eea 0%, #764ba2 25%, #2196f3 50%, #21cbf3 75%, #667eea 100%)',
+
+        // Ethereal cloudy gradient with soft purples and pinks
+        'cloudy-gradient': 'linear-gradient(135deg, #a8edea 0%, #fed6e3 25%, #d299c2 50%, #fef9d7 75%, #a8edea 100%)',
+
+        // Pristine snowy gradient with cool blues and whites
+        'snowy-gradient': 'linear-gradient(135deg, #e0eafc 0%, #cfdef3 25%, #e0eafc 50%, #f093fb 75%, #f5576c 100%)',
+
+        // Mysterious night gradient with deep purples and blues
+        'night-gradient': 'linear-gradient(135deg, #2c3e50 0%, #3498db 25%, #2c3e50 50%, #4a00e0 75%, #8e2de2 100%)',
+
+        // Additional stunning gradients
+        'sunset-gradient': 'linear-gradient(135deg, #fa709a 0%, #fee140 25%, #fa709a 50%, #fee140 75%, #fa709a 100%)',
+        'aurora-gradient': 'linear-gradient(135deg, #00c9ff 0%, #92fe9d 25%, #00c9ff 50%, #92fe9d 75%, #00c9ff 100%)',
+        'tropical-gradient': 'linear-gradient(135deg, #4facfe 0%, #00f2fe 25%, #4facfe 50%, #00f2fe 75%, #4facfe 100%)',
       },
     },
   },
