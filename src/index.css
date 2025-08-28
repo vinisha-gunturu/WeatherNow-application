@@ -1,0 +1,61 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    font-family: 'Inter', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply backdrop-blur-xl bg-white/15 border border-white/25 shadow-2xl;
+  }
+
+  .weather-card {
+    @apply bg-white/15 backdrop-blur-xl rounded-2xl border border-white/25 shadow-2xl hover:bg-white/20 hover:shadow-2xl transition-all duration-300;
+  }
+
+  .weather-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25), 0 0 30px rgba(255, 255, 255, 0.1);
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent;
+  }
+
+  .enhanced-glow {
+    box-shadow:
+      0 0 20px rgba(255, 255, 255, 0.1),
+      0 0 40px rgba(255, 255, 255, 0.05),
+      inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  }
+}
+
+/* Custom scrollbar for horizontal scroll */
+.custom-scrollbar::-webkit-scrollbar {
+  height: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 3px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.5);
+}
