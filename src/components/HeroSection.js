@@ -79,35 +79,37 @@ const HeroSection = ({ onSearch, loading }) => {
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Enter city name..."
-              className="w-full px-6 py-4 pl-12 pr-20 text-lg bg-white/25 backdrop-blur-xl border-2 border-white/40 rounded-full text-white placeholder-white/70 focus:outline-none focus:ring-4 focus:ring-white/30 focus:border-white/60 focus:bg-white/30 transition-all duration-300 shadow-2xl"
+              className="w-full px-6 py-4 pl-12 pr-24 text-lg bg-white/25 backdrop-blur-xl border-2 border-white/40 rounded-full text-white placeholder-white/70 focus:outline-none focus:ring-4 focus:ring-white/30 focus:border-white/60 focus:bg-white/30 transition-all duration-300 shadow-2xl"
               disabled={loading}
             />
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/70 h-5 w-5" />
-            
+
+            {/* Current Location Button */}
             <button
               type="button"
               onClick={handleCurrentLocation}
               disabled={loading}
-              className="absolute right-12 top-1/2 transform -translate-y-1/2 text-white/70 hover:text-white transition-colors duration-200 p-1"
+              className="absolute right-16 top-1/2 transform -translate-y-1/2 text-white/70 hover:text-white hover:bg-white/10 rounded-full p-2 transition-all duration-200"
               title="Use current location"
             >
-              <MapPin className="h-5 w-5" />
+              <MapPin className="h-4 w-4" />
             </button>
+
+            {/* Submit Button */}
+            <motion.button
+              type="submit"
+              disabled={loading || !searchTerm.trim()}
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/40 disabled:bg-white/10 disabled:cursor-not-allowed backdrop-blur-lg rounded-full p-2 transition-all duration-300"
+            >
+              {loading ? (
+                <div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-white"></div>
+              ) : (
+                <Search className="h-4 w-4 text-white" />
+              )}
+            </motion.button>
           </div>
-          
-          <motion.button
-            type="submit"
-            disabled={loading || !searchTerm.trim()}
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/40 disabled:bg-white/10 disabled:cursor-not-allowed backdrop-blur-lg rounded-full p-2 transition-all duration-300"
-          >
-            {loading ? (
-              <div className="animate-spin rounded-full h-5 w-5 border-t-2 border-b-2 border-white"></div>
-            ) : (
-              <Search className="h-5 w-5 text-white" />
-            )}
-          </motion.button>
         </form>
 
         <motion.div
