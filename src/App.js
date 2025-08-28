@@ -28,7 +28,7 @@ function App() {
     } else {
       fetchWeather(city);
     }
-  }, []);
+  }, [fetchWeather, city]);
 
   const handleSearch = (searchCity) => {
     setCity(searchCity);
