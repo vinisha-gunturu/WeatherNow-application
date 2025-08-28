@@ -94,22 +94,22 @@ const HeroSection = ({ onSearch, loading }) => {
             >
               <MapPin className="h-4 w-4" />
             </button>
-
-            {/* Submit Button */}
-            <motion.button
-              type="submit"
-              disabled={loading || !searchTerm.trim()}
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/40 disabled:bg-white/10 disabled:cursor-not-allowed backdrop-blur-lg rounded-full p-2 transition-all duration-300"
-            >
-              {loading ? (
-                <div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-white"></div>
-              ) : (
-                <Search className="h-4 w-4 text-white" />
-              )}
-            </motion.button>
           </div>
+
+          {/* Submit Button - Positioned relative to form container for stable positioning */}
+          <motion.button
+            type="submit"
+            disabled={loading || !searchTerm.trim()}
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="absolute right-2 top-1/2 transform -translate-y-1/2 bg-white/30 hover:bg-white/40 disabled:bg-white/10 disabled:cursor-not-allowed backdrop-blur-lg rounded-full p-2 transition-all duration-300 z-10"
+          >
+            {loading ? (
+              <div className="animate-spin rounded-full h-4 w-4 border-t-2 border-b-2 border-white"></div>
+            ) : (
+              <Search className="h-4 w-4 text-white" />
+            )}
+          </motion.button>
         </form>
 
         <motion.div
