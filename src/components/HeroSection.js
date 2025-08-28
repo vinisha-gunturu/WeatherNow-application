@@ -36,21 +36,34 @@ const HeroSection = ({ onSearch, loading }) => {
         initial={{ scale: 0.9 }}
         animate={{ scale: 1 }}
         transition={{ duration: 0.6, delay: 0.2 }}
-        className="mb-8"
+        className="mb-8 relative"
       >
-        <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 drop-shadow-lg">
-          Weather
-          <motion.span
-            className="inline-block ml-2"
-            animate={{ rotate: [0, 10, -10, 0] }}
-            transition={{ duration: 2, repeat: Infinity, repeatDelay: 3 }}
-          >
-            🌤️
-          </motion.span>
-        </h1>
-        <p className="text-xl md:text-2xl text-white/80 font-light">
-          Your daily weather companion
-        </p>
+        {/* Glowing backdrop for title */}
+        <div className="absolute inset-0 bg-gradient-to-r from-white/5 via-white/10 to-white/5 rounded-3xl blur-xl"></div>
+
+        <div className="relative z-10 enhanced-glow rounded-3xl p-8">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-4 drop-shadow-2xl">
+            Weather
+            <motion.span
+              className="inline-block ml-2"
+              animate={{
+                rotate: [0, 10, -10, 0],
+                scale: [1, 1.1, 1, 1.1, 1],
+              }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                repeatDelay: 2,
+                ease: "easeInOut"
+              }}
+            >
+              🌤️
+            </motion.span>
+          </h1>
+          <p className="text-xl md:text-2xl text-white/90 font-light drop-shadow-lg">
+            Your daily weather companion
+          </p>
+        </div>
       </motion.div>
 
       <motion.div
@@ -60,13 +73,13 @@ const HeroSection = ({ onSearch, loading }) => {
         className="max-w-md mx-auto"
       >
         <form onSubmit={handleSubmit} className="relative">
-          <div className="relative">
+          <div className="relative enhanced-glow">
             <input
               type="text"
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
               placeholder="Enter city name..."
-              className="w-full px-6 py-4 pl-12 pr-20 text-lg bg-white/20 backdrop-blur-lg border border-white/30 rounded-full text-white placeholder-white/70 focus:outline-none focus:ring-2 focus:ring-white/50 focus:border-transparent transition-all duration-300"
+              className="w-full px-6 py-4 pl-12 pr-20 text-lg bg-white/25 backdrop-blur-xl border-2 border-white/40 rounded-full text-white placeholder-white/70 focus:outline-none focus:ring-4 focus:ring-white/30 focus:border-white/60 focus:bg-white/30 transition-all duration-300 shadow-2xl"
               disabled={loading}
             />
             <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-white/70 h-5 w-5" />
